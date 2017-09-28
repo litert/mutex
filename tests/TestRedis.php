@@ -4,19 +4,21 @@ declare (strict_types=1);
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$mc = new \Redis();
-
-$mc->connect('127.0.0.1', 6379);
-
 $factory = \L\Mutex\Factory::createRedisFactory([
     'ttl' => 3,
-    'client' => $mc
+    'client' => (function() {
+        $client = new \Redis();
+
+        $client->connect('127.0.0.1', 6379);
+
+        return $client;
+    })()
 ]);
 
-$lock = $factory->create('hello.lock');
-$lock2 = $factory->create('hello.lock');
+$lock1 = $factory->create('hello.lck');
+$lock2 = $factory->create('hello.lck');
 
-if ($lock->lock()) {
+if ($lock1->lock()) {
 
     echo 'Lock1: locked.', PHP_EOL;
 }
@@ -35,7 +37,7 @@ else {
     echo 'Lock2: failed.', PHP_EOL;
 }
 
-if ($lock->tryLock()) {
+if ($lock1->tryLock()) {
 
     echo 'Lock1: locked.', PHP_EOL;
 }
@@ -54,4 +56,4 @@ else {
     echo 'Lock2: failed.', PHP_EOL;
 }
 
-$lock->unlock();
+$lock1->unlock();

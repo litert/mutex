@@ -24,8 +24,12 @@ class RedisFactory extends IFactory
     {
         return new RedisMutex($name, $this->_opts);
     }
+
     public function createEx(string $name, array $opts): IMutex
     {
-        return new RedisMutex($name, $opts);
+        return new RedisMutex(
+            $name,
+            $this->_fillOptions($opts)
+        );
     }
 }

@@ -25,10 +25,16 @@ class FileMutex extends AbstractMutex implements IMutex
      */
     protected $_fd;
 
+    /**
+     * @var string
+     */
+    protected $_path;
+
     public function __construct(string $name, array $opts)
     {
         parent::__construct($name, $opts);
         $this->_fd = false;
+        $this->_path = $opts['path'] ?? '';
     }
 
     public function lock(): bool
@@ -38,7 +44,7 @@ class FileMutex extends AbstractMutex implements IMutex
         }
 
         $this->_fd = fopen(
-            $this->_name,
+            "{$this->_path}{$this->_name}",
             'w'
         );
 
@@ -62,7 +68,7 @@ class FileMutex extends AbstractMutex implements IMutex
         }
 
         $this->_fd = fopen(
-            $this->_name,
+            "{$this->_path}{$this->_name}",
             'w'
         );
 

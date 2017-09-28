@@ -90,7 +90,7 @@ class RedisMutex extends AbstractCacheMutex implements IMutex
                 );
             }
 
-            return true;
+            return $this->_locked = true;
         }
 
         return false;

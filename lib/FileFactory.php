@@ -24,8 +24,12 @@ class FileFactory extends IFactory
     {
         return new FileMutex($name, $this->_opts);
     }
+
     public function createEx(string $name, array $opts): IMutex
     {
-        return new FileMutex($name, $opts);
+        return new FileMutex(
+            $name,
+            $this->_fillOptions($opts)
+        );
     }
 }

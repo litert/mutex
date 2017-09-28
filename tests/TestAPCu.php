@@ -5,10 +5,10 @@ declare (strict_types=1);
 require __DIR__ . '/../vendor/autoload.php';
 
 $lock = \L\Mutex\Factory::createAPCuMutex(
-    'hello.lock',
+    'hello.lck',
     ['ttl' => 3]
 );
-$lock2 = \L\Mutex\Factory::createAPCuMutex('hello.lock');
+$lock2 = \L\Mutex\Factory::createAPCuMutex('hello.lck');
 
 if ($lock->lock()) {
 

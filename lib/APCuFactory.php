@@ -24,8 +24,12 @@ class APCuFactory extends IFactory
     {
         return new APCuMutex($name, $this->_opts);
     }
+
     public function createEx(string $name, array $opts): IMutex
     {
-        return new APCuMutex($name, $opts);
+        return new APCuMutex(
+            $name,
+            $this->_fillOptions($opts)
+        );
     }
 }

@@ -9,10 +9,13 @@ A mutex management library for LiteRT.
 Supports mutex based on following drivers:
 
 - FileSystem
-- [Redis](https://pecl.php.net/package/redis) (PECL Extension)
-- [Memcached](https://pecl.php.net/package/memcached) (PECL Extension)
-- [Memcache](https://pecl.php.net/package/memcache) (PECL Extension)
-- [APCu](https://pecl.php.net/package/apcu) (PECL Extension)
+- Redis ([PECL Extension](https://pecl.php.net/package/redis))
+- Memcached ([PECL Extension](https://pecl.php.net/package/memcached))
+- Memcache ([PECL Extension](https://pecl.php.net/package/memcache))
+- APCu ([PECL Extension](https://pecl.php.net/package/apcu))
+
+> Only the specific one PECL extension is required when you are using a
+> driver.
 
 ## Installation
 

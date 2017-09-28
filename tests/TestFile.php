@@ -4,10 +4,12 @@ declare (strict_types=1);
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$factory = \L\Mutex\Factory::createFileFactory();
+$factory = \L\Mutex\Factory::createFileFactory([
+    'autoUnlock' => true
+]);
 
-$lock = $factory->create('hello.lock');
-$lock2 = $factory->create('hello.lock');
+$lock = $factory->create('hello.lck');
+$lock2 = $factory->create('hello.lck');
 
 if ($lock->lock()) {
 
@@ -27,7 +29,8 @@ else {
     echo 'Lock2: failed.', PHP_EOL;
 }
 
-$lock->unlock();
+unset($lock);
+# $lock->unlock();
 
 if ($lock2->tryLock()) {
 

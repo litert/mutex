@@ -24,8 +24,12 @@ class MemcacheFactory extends IFactory
     {
         return new MemcacheMutex($name, $this->_opts);
     }
+
     public function createEx(string $name, array $opts): IMutex
     {
-        return new MemcacheMutex($name, $opts);
+        return new MemcacheMutex(
+            $name,
+            $this->_fillOptions($opts)
+        );
     }
 }

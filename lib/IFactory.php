@@ -35,6 +35,19 @@ abstract class IFactory
         $this->_opts = $opts;
     }
 
+    protected function _fillOptions(array $opts): array
+    {
+        foreach ($this->_opts as $key => $val) {
+
+            if (empty($opts[$key])) {
+
+                $opts[$key] = $val;
+            }
+        }
+
+        return $opts;
+    }
+
     /**
      * Create a new lock object.
      *
