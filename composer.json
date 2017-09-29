@@ -32,7 +32,7 @@
     "repositories" : [{
         "type" : "git",
         "url" : "git@github.com:litert/mutex.git",
-        "name" : "http"
+        "name" : "mutex"
     }],
     "suggest": {
         "ext-redis": "For using Redis driver",
