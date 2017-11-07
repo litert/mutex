@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3139b39298594fc121fb4d3dd1890abd",
+    "content-hash": "2505c1213cd8e9e726df66c6b234fe8e",
     "packages": [
         {
             "name": "litert/core",
-            "version": "0.1.0",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/litert/core.git",
-                "reference": "5524f4861898676fe84037fefd3219b17627f0d8"
+                "reference": "71d6f85af0a917b55a66f093792746ecf73774b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/litert/core/zipball/5524f4861898676fe84037fefd3219b17627f0d8",
-                "reference": "5524f4861898676fe84037fefd3219b17627f0d8",
+                "url": "https://api.github.com/repos/litert/core/zipball/71d6f85af0a917b55a66f093792746ecf73774b2",
+                "reference": "71d6f85af0a917b55a66f093792746ecf73774b2",
                 "shasum": ""
             },
             "require": {
@@ -34,7 +34,8 @@
                     "L\\Core\\": "lib"
                 },
                 "files": [
-                    "lib/lang_ext.php"
+                    "lib/LanguageExtension.php",
+                    "lib/ErrorHandler.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -52,10 +53,10 @@
             "description": "The core of LiteRT.",
             "homepage": "https://fenying.net",
             "keywords": [
-                "control",
-                "privilege"
+                "core",
+                "litert"
             ],
-            "time": "2017-08-20T08:21:48+00:00"
+            "time": "2017-11-07T09:07:36+00:00"
         }
     ],
     "packages-dev": [],
